@@ -8,3 +8,18 @@ resource "aws_instance" "web2" {
     Name = "server"
   }
 }
+
+resource "aws_s3_bucket" "aws_bucket" {
+  bucket = "pawan-bucket-demo"
+
+  tags = {
+    Name        = "My bucket"
+    
+  }
+}
+
+resource "aws_s3_object" "object" {
+  bucket = aws_s3_bucket.aws_bucket.id
+  key    = "data.txt"
+  source = "./data.txt"
+}
