@@ -7,3 +7,11 @@ terraform {
     }
   }
 }
+
+terraform {
+  backend "s3" {
+    bucket = "pawan-bucket-2150e100f4a60134"
+    key    = "terraform.tfstate"
+    region = "ap-south-1"
+  }
+}
